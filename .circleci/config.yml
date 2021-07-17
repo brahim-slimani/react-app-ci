@@ -10,3 +10,12 @@ jobs:
       - checkout
       - run: npm install
       - run: npm run build
+      - run:
+          name: git conf
+          command: |
+            git config --global user.email "slimani.ibr@gmail.com"
+            git config --global user.name "Slimani-Ibrahim"
+      - add_ssh_keys:
+          fingerprints:
+            - "b7:5c:cd:68:30:5b:e0:a4:9c:50:45:cf:68:02:71:3e"
+      - run: npm run deploy
